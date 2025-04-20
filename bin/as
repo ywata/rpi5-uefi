@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Find the original `as` command
+ORIGINAL_AS=$(command -v as)
+
+# Check if the script is invoked with the `-v` argument
+if [[ "$*" == *"-v"* ]]; then
+  # Run `as -v` with input redirected from /dev/null
+  "$ORIGINAL_AS" -v < /dev/null
+else
+  # Run `as` with all provided arguments
+  "$ORIGINAL_AS" "$@"
+fi
