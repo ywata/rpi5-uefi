@@ -12,5 +12,4 @@
 	branch = master
 [submodule "edk2"]
 	path = edk2
-	url = git@github.com:ywata/edk2
-	branch = sdmmc-dev
+	url = git@github.com:ywata/edk2.git
