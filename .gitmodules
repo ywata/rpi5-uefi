@@ -2,10 +2,6 @@
 	path = arm-trusted-firmware
 	url = https://github.com/worproject/arm-trusted-firmware.git
 	branch = rpi5
-[submodule "edk2"]
-	path = edk2
-	url = https://github.com/worproject/edk2.git
-	branch = sdmmc-dev
 [submodule "edk2-platforms"]
 	path = edk2-platforms
 	url = https://github.com/worproject/edk2-platforms.git
@@ -14,3 +10,7 @@
 	path = edk2-non-osi
 	url = https://github.com/tianocore/edk2-non-osi.git
 	branch = master
+[submodule "edk2"]
+	path = edk2
+	url = git@github.com:ywata/edk2.git
+	branch = sdmmc-dev-subhook-update
