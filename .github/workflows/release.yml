@@ -22,6 +22,7 @@ jobs:
           for dir in *Release*/; do
             pushd "${dir}"
             zip -r "../${dir%/}.zip" .
+            tar -czf "../${dir%/}.tar.gz" .
             popd
           done
 
@@ -30,5 +31,7 @@ jobs:
         with:
           draft: true
           prerelease: false
-          files: "*.zip"
+          files: |
+            *.zip
+            *.tar.gz
           fail_on_unmatched_files: true
