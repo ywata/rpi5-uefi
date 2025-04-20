@@ -8,19 +8,29 @@
     utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        # Define the custom-as package
+        customAs = pkgs.runCommand "custom-as" {} ''
+          mkdir -p $out/bin
+          cp ${./bin/as} $out/bin/as
+          chmod +x $out/bin/as
+        '';
       in
       {
         packages.default =
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
           pkgs.stdenv.mkDerivation {
             name = "my-package";
             src = ./.;
-            #nativeBuildInputs = [ pkgs.git pkgs.dtc pkgs.acpica-tools pkgs.python312 pkgs.python312Packages.pyelftools pkgs.python3 I];
-            nativeBuildInputs = with pkgs; [ git  dtc acpica-tools python312 python312Packages.pyelftools libuuid gnumake42];
-        };
- 
-
+            nativeBuildInputs = with pkgs; [
+              openssl
+              customAs
+              git
+              dtc
+              acpica-tools
+              python312
+              python312Packages.pyelftools
+              libuuid
+            ];
+          };
       });
 }
