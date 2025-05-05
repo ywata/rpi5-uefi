@@ -12,6 +12,8 @@ if [ -d keys ]; then
                -D SECURE_BOOT_ENABLE=TRUE"
 fi
 OWNER=ywata
-	  export EDK2_BUILD_FLAGS=" \
-              --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor=L"${OWNER}}" \
-              ${EDK2_SECUREBOOT_FLAGS}"
+export EDK2_BUILD_FLAGS=" \
+          --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor=L"${OWNER}}" \
+          ${EDK2_SECUREBOOT_FLAGS}"
+
+export WORKSPACE=$(pwd)
