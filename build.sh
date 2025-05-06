@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # Default variables
@@ -73,6 +73,7 @@ make \
     SUPPORT_VFP=1 \
     SMC_PCI_SUPPORT=1 \
     DEBUG=${DEBUG} \
+    BUILD_MESSAGE_TIMESTAMP=\"1980-01-01,00:00:00\" \
     all \
     ${TFA_FLAGS} \
     || exit
