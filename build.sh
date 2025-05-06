@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #
 # Default variables
@@ -73,9 +73,8 @@ make \
     SUPPORT_VFP=1 \
     SMC_PCI_SUPPORT=1 \
     DEBUG=${DEBUG} \
-    BUILD_MESSAGE_TIMESTAMP=1980-01-01 \
     all \
-    ${TFA_FLAGS} "\
+    ${TFA_FLAGS} \
     || exit
 
 popd || exit
