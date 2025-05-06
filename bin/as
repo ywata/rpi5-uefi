@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Find the original `as` command
+ORIGINAL_AS=$(which -a as | sed -n '2p' )
+
+# Check if the script is invoked with the `-v` argument
+if [ $# -eq 1 -a "$1" = "-v" ]; then
+  # Run `as -v` with input redirected from /dev/null
+  "$ORIGINAL_AS" -v < /dev/null
+elif [ $# -gt 3 -a "$1" = "-x" -a "$2" = "assembler-with-cpp" ]; then
+   # I wonder if this is the correct solution.
+   gcc $*
+else
+  # Run `as` with all provided arguments
+  echo "$*"
+  "$ORIGINAL_AS" "$@"
+fi
